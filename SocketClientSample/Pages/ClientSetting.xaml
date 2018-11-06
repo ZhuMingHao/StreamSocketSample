@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="SocketClientSample.Pages.ClientSetting"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SocketClientSample.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar Background="#00E6E6E6">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <!--确认按钮-->
+            <AppBarButton Icon="Accept" Label="确定" Click="{x:Bind _vm.ConnectionToServicer}"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="12">
+            <!--配置区 Start-->
+            <StackPanel Margin="0,6" Orientation="Horizontal">
+                <TextBlock Text="服务器IP："/>
+                <TextBox  Text="{x:Bind _vm.ServicerIp,Mode = TwoWay}" />
+            </StackPanel>
+            <StackPanel Margin="0,6" Orientation="Horizontal">
+                <TextBlock Text="端 口  号：" />
+                <TextBox  Text="{x:Bind _vm.ServicerPort, Mode= TwoWay}" />
+            </StackPanel>
+            <StackPanel Margin="0,6" Orientation="Horizontal">
+                <TextBlock Text="昵       称：" />
+                <TextBox  Text="{x:Bind _vm.UserModel.UserName, Mode= TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Margin="0,6" Orientation="Horizontal">
+                <TextBlock Text="连接状态：" />
+                <TextBlock TextWrapping="WrapWholeWords" Text="{x:Bind _vm.SocketStateTxt, Mode = OneWay}"/>
+            </StackPanel>
+            <!--配置区End-->
+        </StackPanel>
+    </Grid>
+</Page>
